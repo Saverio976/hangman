@@ -17,7 +17,7 @@ char *get_mot(char *mot_a_deviner){
 
         nombre_mystere = gen_random(nombre_de_mot);
 
-        fichier = my_rewind(fichier, "./src/data/mot", "r");
+        fichier = my_rewind(fichier);
 
         for (int i = 0; i < nombre_de_mot && i != nombre_mystere; i++)
             my_readlines(fichier, mot_a_deviner, TAILLE_MAX);

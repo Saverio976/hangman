@@ -10,7 +10,7 @@ int main(){
     char input[TAILLE_MAX];
 
     int nombre_coup_restant;
-    int rejouer = 1;
+    bool rejouer = TRUE;
 
     while (rejouer){
         reinitialiser_tab(mot_a_deviner, mot_afficher, input);
@@ -42,7 +42,7 @@ int main(){
             print_str("\noui : 1\nnon : 0\n>>> ");
             my_lecture(mot_afficher, TAILLE_MAX);
             rejouer = my_strtoint(mot_afficher);
-        } while (rejouer != 0 && rejouer != 1);
+        } while (rejouer != TRUE && rejouer != FALSE);
 
         print_char('\n');
     }

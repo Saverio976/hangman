@@ -7,6 +7,10 @@ c041ng 8y Paradox
 #define DEF_MAIN
 #define NB_DE_COUP  10
 #define TAILLE_MAX  50
+#define bool    _Bool
+#define TRUE    1
+#define FALSE   0
+
 
 //mylib
 #include "my_lib.h"

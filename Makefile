@@ -26,6 +26,12 @@ OBJET =	gen_random.o	\
 
 # ----------------------------------------------------------------------------
 
+help:
+	less ./Doc/HELP.md
+
+aide:
+	less ./Doc/AIDE.md
+
 init:	cleanall object lib compil clean
 
 keep: 	cleanall object lib compil
