@@ -11,6 +11,8 @@ char *my_inttostr(int number, char *tab);
 
 int my_strtoint(char *tab);
 
+int my_chartoint(char c);
+
 
 // file
 int my_close(int fd);

@@ -3,28 +3,28 @@ c041ng 8y Paradox
 */
 #include "../include/hangman.h"
 
-char *get_mot(char *mot_a_deviner){
-    int fichier;
-    int nombre_de_mot = 0;
-    int nombre_mystere = 0;
+char *get_mot(char *secret_word){
+    int file;
+    int words_number = 0;
+    int random_number = 0;
 
-    fichier = my_open("./src/data/mot","r");
-    if (fichier != -1){
+    file = my_open("./src/data/mot","r");
+    if (file != -1){
 
-        while (my_readlines(fichier, mot_a_deviner, TAILLE_MAX)){
-            nombre_de_mot++;
+        while (my_readlines(file, secret_word, TAILLE_MAX)){
+            words_number++;
         }
 
-        nombre_mystere = gen_random(nombre_de_mot);
+        random_number = gen_random(words_number);
 
-        fichier = my_rewind(fichier);
+        file = my_rewind(file);
 
-        for (int i = 0; i < nombre_de_mot && i != nombre_mystere; i++)
-            my_readlines(fichier, mot_a_deviner, TAILLE_MAX);
+        for (int i = 0; i < words_number && i != random_number; i++)
+            my_readlines(file, secret_word, TAILLE_MAX);
 
-        my_close(fichier);
+        my_close(file);
 
-        return (mot_a_deviner);
+        return (secret_word);
     }
     return (NULL);
 }
