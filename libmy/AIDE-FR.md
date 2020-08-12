@@ -33,6 +33,13 @@ converti une chaine de caractère contenant que des nombre, en int.
 et renvoi le nombre
 
 
+# char to int
+
+int my_chartoint(char c);
+    char c
+converti un charactere en un int (le charactere peut venir par exemple du my_lecture_one() et il est prit en ascii)
+
+
 
 
 # \\ # \\ # Thème 2 : **fichier**

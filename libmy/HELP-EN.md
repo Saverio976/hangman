@@ -33,6 +33,13 @@ converts a string containing only numbers into int.
 and returns the number
 
 
+# char to int
+
+int my_chartoint(char c);
+    char c
+convert a character to an int (the character can come for example from my_lecture_one() and is taken in ascii)
+
+
 
 
 # \\\ # \\\ # Theme 2: **file**

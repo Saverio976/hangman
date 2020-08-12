@@ -1,7 +1,7 @@
 # hangman
 hangman that using libmy
 
-informations : 
+informations :
 - Doc/HELP.md
 - Doc/AIDE.md
 
@@ -50,7 +50,7 @@ Pour voir les différentes fonctions de libmy,
 regardez dans le dossier "./libmy/".
 
 *Autre lib utilisée*
-__C'est bibliothèque ne sont là que pour choisir un mot aléatoirement__
+__Ces bibliothèque ne sont là que pour choisir un mot aléatoirement__
 - time
 - stdlib
 
@@ -64,6 +64,7 @@ Deviner un mot en donnant une lettre par essai.
 Si vous pensez avoir trouvé le mot, vous pouvez le donner directement.
 À chaque erreur, vous perdez un point.
 Vous avez un total de dix point.
+
 
 
 *Futur*
