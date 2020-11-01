@@ -1,5 +1,7 @@
 /*
 c041ng 8y Paradox
+
+some utils function for hangman.c
 */
 #include "../include/hangman.h"
 
@@ -34,9 +36,10 @@ void check(char *input, char *secret_word, char *hidden_word, int *ptr_nb_joker)
         print1("\n%s est dans le mot\n", input);
 }
 
-void show_information_in_game(int nb_joker, char *hidden_word){
+void show_information_in_game(int nb_joker, char *hidden_word, char *input_history){
     print1("\nIl vous reste %d chance de ne pas trouver une lettre\n", &nb_joker);
     print1("Le mot à deviner est : %s\n", hidden_word);
+    print1("Vous avez déjà testé ces lettres : %s\n", input_history);
     print_str("Quelle lettre voulez vous tester ? : ");
 }
 
@@ -63,4 +66,16 @@ bool is_replay(){
         replay = my_chartoint(answer);
     } while (replay != TRUE && replay != FALSE);
     return (replay);
+}
+
+bool ft_is_one_player(){
+    char answer;
+    bool one_or_zero;
+
+    do {
+        print_str("\n1 : mode 1 joueur \n0 : mode 2 joueurs\n>>> ");
+        my_lecture_one(&answer);
+        one_or_zero = my_chartoint(answer);
+    } while (one_or_zero != TRUE && one_or_zero != FALSE);
+    return (one_or_zero);
 }

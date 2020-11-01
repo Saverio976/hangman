@@ -1,5 +1,7 @@
 /*
 c041ng 8y Paradox
+
+pick a random word
 */
 #include "../include/hangman.h"
 
@@ -11,7 +13,7 @@ char *get_mot(char *secret_word){
     file = my_open("./src/data/mot","r");
     if (file != -1){
 
-        while (my_readlines(file, secret_word, TAILLE_MAX)){
+        while (my_readline(file, secret_word, TAILLE_MAX)){
             words_number++;
         }
 
@@ -20,7 +22,7 @@ char *get_mot(char *secret_word){
         file = my_rewind(file);
 
         for (int i = 0; i < words_number && i != random_number; i++)
-            my_readlines(file, secret_word, TAILLE_MAX);
+            my_readline(file, secret_word, TAILLE_MAX);
 
         my_close(file);
 
