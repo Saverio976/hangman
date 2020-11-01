@@ -56,6 +56,7 @@ mylib:
 	git clone https://github.com/Saverio976/libmy.git
 	cd libmy;	\
 	make init
+	\cp "./libmy/src/include/my_lib.h" "./src/include/"
 # création de la lib étant une combinaison des deux autres
 cat_lib:
 	echo "# # # # # # # # # # cat lib"
