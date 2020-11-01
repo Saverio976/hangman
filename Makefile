@@ -28,42 +28,65 @@ OBJET =	gen_random.o	\
 
 # ----------------------------------------------------------------------------
 
+
 help:
 	less ./Doc/HELP.md
 
 aide:
 	less ./Doc/AIDE.md
 
-init:	cleanall object mylib lib compil clean
+# command permettant de tout re compiler
+init:	all_clean all_lib compil clean_propre
 
-keep: 	cleanall object mylib lib compil
 
+# # lib
+# créer les object (.o) pour la librairie
 object:
 	echo "# # # # # # # # # # object"
 	gcc -c $(SRC)
-
-lib:
+# création de la lib utilisée par le fichier princepal hangman.c
+gamelib:
 	echo "# # # # # # # # # # lib"
 	ar rc $(GAMELIB) $(OBJET)
 	ranlib $(GAMELIB)
-	ar rcT $(MASTERLIB) $(GAMELIB) $(MYLIB)
-	ranlib $(MASTERLIB)
-
-compil:
-	echo "# # # # # # # # # # compil"
-	gcc $(TARGET) -L. -lall -o $(EXE)
-
-clean:
-	echo "# # # # # # # # # # clean"
-	rm -f $(MASTERLIB) $(GAMELIB) *.o
-
-cleanall:
-	echo "# # # # # # # # # # cleanall"
-	rm -f $(MASTERLIB) $(GAMELIB) $(EXE) *.o
-	
+# telechargement et création de la lib personnalisée
 mylib:
 	echo "# # # # # # # # # # libmy"
 	rm -r -f libmy
 	git clone https://github.com/Saverio976/libmy.git
 	cd libmy;	\
 	make init
+# création de la lib étant une combinaison des deux autres
+cat_lib:
+	echo "# # # # # # # # # # cat lib"
+	ar rcT $(MASTERLIB) $(GAMELIB) $(MYLIB)
+	ranlib $(MASTERLIB)
+# toutes les commandes de la categorie lib
+all_lib:	object gamelib mylib cat_lib
+
+# # création du fichier executable
+# création exe
+compil:
+	echo "# # # # # # # # # # compil"
+	gcc $(TARGET) -L. -lall -o $(EXE)
+
+# # suppression des différents composant
+# rm *.o
+clean_objet:
+	echo "# # # # # # # # # # clean all .o"
+	rm -f *.o
+# rm lib
+clean_lib:
+	echo "# # # # # # # # # # clean all lib"
+	rm -f $(MASTERLIB) $(GAMELIB)
+# rm exe
+clean_exe:
+	echo "# # # # # # # # # # clean exe"
+	rm -f $(EXE)
+# rm propre
+clean_propre:
+	echo "# # # # # # # # # # clean propre"
+	rm -f *.o
+	rm -f $(MASTERLIB) $(GAMELIB)
+# rm propre
+all_clean:	clean_objet clean_lib clean_exe
