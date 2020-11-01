@@ -18,9 +18,12 @@
 
 # Libraries
 *.lib
-# *.a (you need libmy.a to make init)
+*.a
 *.la
 *.lo
+
+# libmy directory (download in makefile make init)
+/libmy
 
 # Shared objects (inc. Windows DLLs)
 *.dll
