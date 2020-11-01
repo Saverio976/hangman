@@ -63,7 +63,7 @@ cat_lib:
 	ar rcT $(MASTERLIB) $(GAMELIB) $(MYLIB)
 	ranlib $(MASTERLIB)
 # toutes les commandes de la categorie lib
-all_lib:	object gamelib mylib cat_lib
+all_lib:	mylib object gamelib cat_lib
 
 # # création du fichier executable
 # création exe
