@@ -38,6 +38,9 @@ aide:
 # command permettant de tout re compiler
 init:	all_clean all_lib compil clean_propre
 
+# commande permettant de ne pas passer par le telechargement de libmy
+re_compil:	all_clean object gamelib cat_lib compil clean_propre
+
 
 # # lib
 # créer les object (.o) pour la librairie
