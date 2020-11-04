@@ -17,7 +17,7 @@ void reinitialiser_int(int *nb_joker){
 }
 
 void set_hidden_word(char *hidden_word, int len_word){
-    for (int i = 0; i < len_word; i++)
+    for (int i = 0; i < len_word-1; i++)
         hidden_word[i] = '*';
 }
 
