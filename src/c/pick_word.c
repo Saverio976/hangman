@@ -11,22 +11,23 @@ char *get_mot(char *secret_word){
     int random_number = 0;
 
     file = my_open("./src/data/mot","r");
-    if (file != -1){
+    if (file == -1)
+        return (NULL);
 
-        while (my_readline(file, secret_word, TAILLE_MAX)){
-            words_number++;
-        }
+    while (my_readline(file, secret_word, TAILLE_MAX))
+        words_number++;
 
-        random_number = gen_random(words_number);
+    random_number = gen_random(words_number);
 
-        file = my_rewind(file);
+    my_close(file);
+    file = my_open("./src/data/mot", "r");
+    if (file == -1)
+        return (NULL);
 
-        for (int i = 0; i < words_number && i != random_number; i++)
-            my_readline(file, secret_word, TAILLE_MAX);
+    for (int i = 0; i < words_number && i != random_number; i++)
+        my_readline(file, secret_word, TAILLE_MAX);
 
-        my_close(file);
+    my_close(file);
 
-        return (secret_word);
-    }
-    return (NULL);
+    return (secret_word);
 }
